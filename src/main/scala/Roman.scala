@@ -9,7 +9,19 @@ case class Roman(s: String) {
     'M' -> 1000
   )
 
+  val fivesMapping = Map(
+    'V' -> 5,
+    'L' -> 50,
+    'D' -> 500
+    )
+
+  val allMapping = repeatingAdditionMapping ++ fivesMapping
+
   def value: Int = {
-    s.map((c: Char) => repeatingAdditionMapping(c)).sum
+    s.map((c: Char) => allMapping(c)).sum
+  }
+
+  def valueOfSingleDigit(c: Char): Int = {
+    allMapping(c)
   }
 }

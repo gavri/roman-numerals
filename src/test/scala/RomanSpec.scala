@@ -3,20 +3,32 @@ package com.example.gavri.romannumerals
 import org.scalatest._
 
 class RomanSpec extends FunSpec with Matchers {
+
+  def assertRomanValue(s: String, value: Int): Assertion = {
+    Roman(s).value should equal (new Integer(value))
+  }
+
+
   describe("Roman") {
     it("should understand the repeating/additon rule") {
-      Roman("I").value should equal (new Integer(1))
-      Roman("II").value should equal (new Integer(2))
-      Roman("III").value should equal (new Integer(3))
-      Roman("X").value should equal (new Integer(10))
-      Roman("XX").value should equal (new Integer(20))
-      Roman("XXX").value should equal (new Integer(30))
-      Roman("C").value should equal (new Integer(100))
-      Roman("CC").value should equal (new Integer(200))
-      Roman("CCC").value should equal (new Integer(300))
-      Roman("M").value should equal (new Integer(1000))
-      Roman("MM").value should equal (new Integer(2000))
-      Roman("MMM").value should equal (new Integer(3000))
+      assertRomanValue("I", 1)
+      assertRomanValue("II", 2)
+      assertRomanValue("III", 3)
+      assertRomanValue("X", 10)
+      assertRomanValue("XX", 20)
+      assertRomanValue("XXX", 30)
+      assertRomanValue("C", 100)
+      assertRomanValue("CC", 200)
+      assertRomanValue("CCC", 300)
+      assertRomanValue("M", 1000)
+      assertRomanValue("MM", 2000)
+      assertRomanValue("MMM", 3000)
+    }
+
+    it("should understand fives") {
+      assertRomanValue("V", 5)
+      assertRomanValue("L", 50)
+      assertRomanValue("D", 500)
     }
   }
 }

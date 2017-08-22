@@ -48,6 +48,19 @@ class RomanSpec extends FunSpec with Matchers {
       assertRomanValue("DII", 502)
       assertRomanValue("DIII", 503)
     }
+
+    it("should understand subtraction rule") {
+      assertRomanValue("IV", 4)
+      assertRomanValue("IX", 9)
+      assertRomanValue("XL", 40)
+      assertRomanValue("XC", 90)
+      assertRomanValue("CD", 400)
+      assertRomanValue("CM", 900)
+      assertRomanValue("XIV", 14)
+      assertRomanValue("DCXLVIII", 648)
+      assertRomanValue("MMDXLIX", 2549)
+      assertRomanValue("MCMXLIV", 1944)
+      assertRomanValue("MCMXCIX", 1999)
+    }
   }
 }
-
